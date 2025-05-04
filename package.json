@@ -2,6 +2,7 @@
   "name": "ferma_u_romana",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://al-busova.github.io/u_romana",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/dom": "^10.4.0",
@@ -11,6 +12,7 @@
     "axios": "^1.1.3",
     "date-fns": "^2.29.3",
     "formik": "^2.2.9",
+    "gh-pages": "^6.3.0",
     "nanoid": "^5.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -29,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
