@@ -6,7 +6,7 @@ export const NavigationStyled = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;
 export const BtnMenu = styled.button`
   background-color: transparent;

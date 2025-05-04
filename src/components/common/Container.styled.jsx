@@ -12,7 +12,7 @@ export const Container = styled.div`
     padding: 0 25px;
   }
   @media ${device.desktop} {
-    /* margin: 0 auto; */
+    margin: 0 auto;
     width: 955px;
   }
 `;

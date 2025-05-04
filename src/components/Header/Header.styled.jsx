@@ -10,7 +10,7 @@ export const HeaderStyled = styled.header`
   } */
 `;
 export const TopWrapper = styled.div`
-z-index: 100;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,4 +20,5 @@ z-index: 100;
   width: 100%;
   background-color: ${props => props.theme.colors.background};
   padding-top: 20px;
+  /* gap: 100px; */
 `;

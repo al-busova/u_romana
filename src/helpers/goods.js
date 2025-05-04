@@ -1,5 +1,6 @@
-import good_e from '../staticImages/good.jfif';
-import good_b from '../staticImages/good_b.jfif';
+import good_e from '../staticImages/good_e.jpeg';
+import good_b from '../staticImages/good_b.jpg';
+
 const goods = [
   {
     id: 1,

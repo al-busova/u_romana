@@ -9,6 +9,6 @@ export const ImgLogo = styled.img`
     width: 100px;
   }
   @media ${device.desktop} {
-  margin-right: 60px;
+  /* margin-right: 60px; */
   }
 `;

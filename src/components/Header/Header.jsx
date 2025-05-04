@@ -8,8 +8,8 @@ import { Logo } from 'components/Logo/Logo';
 export const Header = () => {
   return (
     <TopWrapper>
-      <Logo/>
-      <div>
+      <Logo />
+      <div >
         <TopHeader />
         <SocialLinks />
         <HeaderStyled>

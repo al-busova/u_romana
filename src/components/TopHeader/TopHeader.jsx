@@ -1,4 +1,8 @@
-import { ContactsWrapper, ContactsLink } from './TopHeader.styled';
+import {
+  ContactsWrapper,
+  ContactsLink,
+  WrapperIcons,
+} from './TopHeader.styled';
 import { Container } from 'components/common/Container.styled';
 import { FaShoppingBasket } from 'react-icons/fa';
 import { IoPerson } from 'react-icons/io5';
@@ -15,12 +19,12 @@ export const TopHeader = () => {
           <ContactsLink href="tel:+380996748145">+380996748145</ContactsLink>
           <ContactsLink href="tel:+380966748145">+380966748145</ContactsLink>
         </div>
-        <div>
+        <WrapperIcons>
           <NavLink to="/basket">
-            <FaShoppingBasket color="white" size="30px" />
+            <FaShoppingBasket color="white"  />
           </NavLink>
-          <IoPerson color="white" size="30px" />
-        </div>
+          <IoPerson color="white"  />
+        </WrapperIcons>
       </ContactsWrapper>
     </Container>
   );

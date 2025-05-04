@@ -18,11 +18,11 @@ export const Nav = ({ onClose }) => {
             Наша історія
           </NavLinkStyled>
         </li>
-        <li>
+        {/* <li>
           <NavLinkStyled to="/contacts" onClick={onClose}>
             Контакти та про нас
           </NavLinkStyled>
-        </li>
+        </li> */}
         <li>
           <NavLinkStyled to="/deliverypay" onClick={onClose}>
             Доставка та оплата
