@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/u_romana/static/css/main.8ab37b5e.css",
+    "main.js": "/u_romana/static/js/main.d0894e85.js",
+    "static/js/118.9926b64c.chunk.js": "/u_romana/static/js/118.9926b64c.chunk.js",
+    "static/js/636.e67bafd6.chunk.js": "/u_romana/static/js/636.e67bafd6.chunk.js",
+    "static/js/977.61eed42f.chunk.js": "/u_romana/static/js/977.61eed42f.chunk.js",
+    "static/js/784.4541526e.chunk.js": "/u_romana/static/js/784.4541526e.chunk.js",
+    "static/js/309.222bbe18.chunk.js": "/u_romana/static/js/309.222bbe18.chunk.js",
+    "static/js/852.ff520277.chunk.js": "/u_romana/static/js/852.ff520277.chunk.js",
+    "static/js/822.8dcc0c43.chunk.js": "/u_romana/static/js/822.8dcc0c43.chunk.js",
+    "static/media/egg.png": "/u_romana/static/media/egg.6b031536d4d3d059a1a4.png",
+    "static/media/rek2.jpg": "/u_romana/static/media/rek2.826c5d628d122ffc98b7.jpg",
+    "static/media/rek1.jpg": "/u_romana/static/media/rek1.880107a56d288a1f7299.jpg",
+    "static/media/bg_spots2.avif": "/u_romana/static/media/bg_spots2.da8b754c565445e3e305.avif",
+    "static/media/rek3.jpg": "/u_romana/static/media/rek3.7aac28f7c3effaa1c729.jpg",
+    "static/media/good.jfif": "/u_romana/static/media/good.efeaa6aac2147ecb75e6.jfif",
+    "static/media/good_b.jfif": "/u_romana/static/media/good_b.fe262e49d22fd2c28bcf.jfif",
+    "index.html": "/u_romana/index.html",
+    "main.8ab37b5e.css.map": "/u_romana/static/css/main.8ab37b5e.css.map",
+    "main.d0894e85.js.map": "/u_romana/static/js/main.d0894e85.js.map",
+    "118.9926b64c.chunk.js.map": "/u_romana/static/js/118.9926b64c.chunk.js.map",
+    "636.e67bafd6.chunk.js.map": "/u_romana/static/js/636.e67bafd6.chunk.js.map",
+    "977.61eed42f.chunk.js.map": "/u_romana/static/js/977.61eed42f.chunk.js.map",
+    "784.4541526e.chunk.js.map": "/u_romana/static/js/784.4541526e.chunk.js.map",
+    "309.222bbe18.chunk.js.map": "/u_romana/static/js/309.222bbe18.chunk.js.map",
+    "852.ff520277.chunk.js.map": "/u_romana/static/js/852.ff520277.chunk.js.map",
+    "822.8dcc0c43.chunk.js.map": "/u_romana/static/js/822.8dcc0c43.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ab37b5e.css",
+    "static/js/main.d0894e85.js"
+  ]
+}
