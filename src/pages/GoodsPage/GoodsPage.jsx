@@ -20,10 +20,11 @@ const GoodsPage = () => {
     return JSON.parse(window.localStorage.getItem(GOODS)) ?? data;
   });
   const [basket, setBasket] = useState([]);
+
   const modifBasket = basket => {
     const newBasket = [];
     basket.map(good => {
-      const dubl = newBasket.find(el => el.id === good.id);
+      const dubl = newBasket.find(el => el._id === good._id);
       if (!dubl) {
         newBasket.push({ ...good, count: 1 });
       } else {
@@ -80,11 +81,16 @@ const GoodsPage = () => {
           </WrapperTitle>
           <GoodsList>
             {goods.map(good => (
-              <li key={good.id}>
-                <GoodLink href="" data={good}>
-                  <img src={good.image} alt="eggs" width="70px" />
-                  <h3>{good.name}</h3>
-                  <p>{good.priceStr}</p>
+              <li key={good._id}>
+                <GoodLink href="">
+                  <img src={good.imageURL} alt="eggs" width="70px" />
+                  <h3>{good.title}</h3>
+                  <p>{good.price}</p>
+                  {good.availability ? (
+                    <p>Є в наявності</p>
+                  ) : (
+                    <p>Немає в наявності</p>
+                  )}
                   <p> счетчик колличества</p>
                   <button
                     onClick={e => {

@@ -15,10 +15,10 @@ const Basket = () => {
           {basketGoods &&
             basketGoods.map(good => {
               return (
-                <li key={good.id}>
-                  <img src={good.image} alt="" />
-                  <p>{good.name}</p>
-                  <p>{good.priceStr}</p>
+                <li key={good._id}>
+                  <img src={good.imageURL} alt="" width="100"/>
+                  <p>{good.title}</p>
+                  <p>{good.price}</p>
                   <div style={{ display: 'flex' }}>
                     <BtnChangeCount>-</BtnChangeCount>
                     <p> {good.count}</p> <BtnChangeCount>+</BtnChangeCount>
@@ -34,7 +34,7 @@ const Basket = () => {
           Разом до сплати{' '}
           {basketGoods &&
             basketGoods.reduce((prev, good) => {
-              return prev + good.priceN;
+              return prev + good.price;
             }, 0)}
         </p>
         <button>Офрмити замолення</button>

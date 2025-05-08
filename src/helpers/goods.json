@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "fjdhfdsj3",
+    "imageURL": "-",
+    "title": "Яйця курячі, 1 десяток",
+    "description": "       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolorem maiores et, aliquam odio consequuntur eligendi obcaecati accusantium autem mollitia.",
+    "availability": "true",
+    "price": "60",
+    "sale": "0",
+    "likes": "3"
+  },
+  {
+    "_id": "fjdhfdsj1",
+    "imageURL": "-",
+    "title": "Яйця перепелині, 1 десяток",
+    "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolorem maiores et, aliquam odio consequuntur eligendi obcaecati accusantium autem mollitia.",
+    "availability": "true",
+    "price": "80",
+    "sale": "0",
+    "likes": "8"
+  },
+  {
+    "_id": "fjdhfdsj2",
+    "imageURL": "-",
+    "title": "М'ясо молодих перепелів",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolorem maiores et, aliquam odio consequuntur eligendi obcaecati accusantium autem mollitia.",
+    "availability": "true",
+    "price": "130",
+    "sale": "10",
+    "likes": "4"
+  }
+]
