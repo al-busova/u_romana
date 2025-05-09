@@ -5,6 +5,7 @@ import PublicRoute from '../components/PublicRoute';
 import { LeftSide } from './LeftSide/LeftSide';
 import { MainBody } from './LeftSide/LeftSide.styled';
 
+
 const GoodsPage = lazy(() => import('../pages/GoodsPage/GoodsPage'));
 const OurHistoryPage = lazy(() =>
   import('../pages/OurHistoryPage/OurHistoryPage')
@@ -15,6 +16,7 @@ const DeliveryPayPage = lazy(() =>
   import('../pages/DeliveryPayPage/DeliveryPayPage')
 );
 const Basket = lazy(() => import('../pages/BasketPage/BasketPage'));
+const UserPage = lazy(() => import('../pages/UserPage/UserPage'));
 
 export const App = () => {
   // const isLoading = useSelector(selectIsLoading);
@@ -48,6 +50,14 @@ export const App = () => {
               element={
                 <PublicRoute>
                   <OurHistoryPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PublicRoute>
+                  <UserPage />
                 </PublicRoute>
               }
             />

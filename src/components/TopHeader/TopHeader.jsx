@@ -21,9 +21,11 @@ export const TopHeader = () => {
         </div>
         <WrapperIcons>
           <NavLink to="/basket">
-            <FaShoppingBasket color="white"  />
+            <FaShoppingBasket color="white" />
           </NavLink>
-          <IoPerson color="white"  />
+          <NavLink to="/profile">
+            <IoPerson color="white" />{' '}
+          </NavLink>
         </WrapperIcons>
       </ContactsWrapper>
     </Container>

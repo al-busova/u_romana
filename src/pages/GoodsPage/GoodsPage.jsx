@@ -21,25 +21,9 @@ const GoodsPage = () => {
   });
   const [basket, setBasket] = useState([]);
 
-  const modifBasket = basket => {
-    const newBasket = [];
-    basket.map(good => {
-      const dubl = newBasket.find(el => el._id === good._id);
-      if (!dubl) {
-        newBasket.push({ ...good, count: 1 });
-      } else {
-        newBasket.map(el => {
-          return el.id === dubl.id ? (el.count = el.count + 1) : {};
-        });
-      }
-      return newBasket;
-    });
-    return newBasket;
-  };
-
   useEffect(() => {
     window.localStorage.setItem(GOODS, JSON.stringify(goods));
-    window.localStorage.setItem(BASKET, JSON.stringify(modifBasket(basket)));
+    window.localStorage.setItem(BASKET, JSON.stringify(basket));
   }, [goods, basket]);
 
   const handlerSearchInput = e => {
@@ -58,8 +42,18 @@ const GoodsPage = () => {
   };
 
   const addToBasket = el => {
-    console.log(el);
-    setBasket(prev => [...prev, el]);
+    setBasket(prevBasket => {
+      const index = prevBasket.findIndex(item => item._id === el._id);
+      if (index !== -1) {
+        const updatedBasket = [...prevBasket];
+        const existingItem = { ...updatedBasket[index] };
+        existingItem.count = (existingItem.count || 1) + 1;
+        updatedBasket[index] = existingItem;
+        return updatedBasket;
+      } else {
+        return [...prevBasket, { ...el, count: 1 }];
+      }
+    });
     // (а на бекенде должно біть - 1 и нужна проверка, что
     //   если кол - о меньше, чем просит покупатель, то показать,
     //   что осталось только столько - то)
@@ -91,7 +85,7 @@ const GoodsPage = () => {
                   ) : (
                     <p>Немає в наявності</p>
                   )}
-                  <p> счетчик колличества</p>
+                  <p> счетчик колличества {good.count}</p>
                   <button
                     onClick={e => {
                       e.preventDefault();
@@ -111,3 +105,18 @@ const GoodsPage = () => {
 };
 
 export default GoodsPage;
+  // const modifBasket = basket => {
+  //   // const newBasket = [];
+  //   // basket.map(good => {
+  //   //   const dubl = newBasket.find(el => el._id === good._id);
+  //   //   if (!dubl) {
+  //   //     newBasket.push({ ...good, count: 1 });
+  //   //   } else {
+  //   //     newBasket.map(el => {
+  //   //       return el.id === dubl.id ? (el.count = el.count + 1) : {};
+  //   //     });
+  //   //   }
+  //   //   return newBasket;
+  //   // });
+  //   // return newBasket;
+  // };

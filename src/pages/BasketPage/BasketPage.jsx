@@ -34,7 +34,7 @@ const Basket = () => {
           Разом до сплати{' '}
           {basketGoods &&
             basketGoods.reduce((prev, good) => {
-              return prev + good.price;
+              return prev + good.price*good.count;
             }, 0)}
         </p>
         <button>Офрмити замолення</button>
