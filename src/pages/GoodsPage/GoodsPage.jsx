@@ -4,6 +4,12 @@ import {
   WrapperTitle,
   GoodsList,
   GoodLink,
+  GoodImgThumb,
+  GoodTitle,
+  GoodPrice,
+  GoodAvailability,
+  GoodAvailabilityN,
+  BtnCard,
 } from './GoodsPage.styled.jsx';
 import { PageTitle } from 'components/common/CommonText.styled.jsx';
 import { SearchBar } from '../../components/common/SearchBar/SearchBar.jsx';
@@ -77,23 +83,40 @@ const GoodsPage = () => {
             {goods.map(good => (
               <li key={good._id}>
                 <GoodLink href="">
-                  <img src={good.imageURL} alt="eggs" width="70px" />
-                  <h3>{good.title}</h3>
-                  <p>{good.price}</p>
+                  <GoodImgThumb>
+                    {' '}
+                    <img src={good.imageURL} alt="eggs" width="70px" />
+                  </GoodImgThumb>
+                  <GoodTitle>{good.title}</GoodTitle>
+                  <GoodPrice>{good.price} грн</GoodPrice>
                   {good.availability ? (
-                    <p>Є в наявності</p>
+                    <>
+                      <GoodAvailability>Є в наявності</GoodAvailability>
+                      <BtnCard
+                        onClick={e => {
+                          e.preventDefault();
+                          addToBasket(good);
+                        }}
+                      >
+                        Купити
+                        <FaShoppingBasket />
+                      </BtnCard>
+                    </>
                   ) : (
-                    <p>Немає в наявності</p>
+                    <>
+                      <GoodAvailabilityN>Немає в наявності</GoodAvailabilityN>
+                      <BtnCard
+                        disabled
+                        onClick={e => {
+                          e.preventDefault();
+                          addToBasket(good);
+                        }}
+                      >
+                        Купити
+                        <FaShoppingBasket />
+                      </BtnCard>
+                    </>
                   )}
-                  <p> счетчик колличества {good.count}</p>
-                  <button
-                    onClick={e => {
-                      e.preventDefault();
-                      addToBasket(good);
-                    }}
-                  >
-                    <FaShoppingBasket /> В корзину
-                  </button>{' '}
                 </GoodLink>
               </li>
             ))}{' '}
@@ -105,18 +128,18 @@ const GoodsPage = () => {
 };
 
 export default GoodsPage;
-  // const modifBasket = basket => {
-  //   // const newBasket = [];
-  //   // basket.map(good => {
-  //   //   const dubl = newBasket.find(el => el._id === good._id);
-  //   //   if (!dubl) {
-  //   //     newBasket.push({ ...good, count: 1 });
-  //   //   } else {
-  //   //     newBasket.map(el => {
-  //   //       return el.id === dubl.id ? (el.count = el.count + 1) : {};
-  //   //     });
-  //   //   }
-  //   //   return newBasket;
-  //   // });
-  //   // return newBasket;
-  // };
+// const modifBasket = basket => {
+//   // const newBasket = [];
+//   // basket.map(good => {
+//   //   const dubl = newBasket.find(el => el._id === good._id);
+//   //   if (!dubl) {
+//   //     newBasket.push({ ...good, count: 1 });
+//   //   } else {
+//   //     newBasket.map(el => {
+//   //       return el.id === dubl.id ? (el.count = el.count + 1) : {};
+//   //     });
+//   //   }
+//   //   return newBasket;
+//   // });
+//   // return newBasket;
+// };

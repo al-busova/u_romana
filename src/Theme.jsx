@@ -1,3 +1,4 @@
+
 export const theme = {
   colors: {
     accent: '#f4be0c',
@@ -48,4 +49,5 @@ export const theme = {
   shadow: {
     main: '0 2px 8px rgba(0, 0, 0, 0.1)',
   },
+ 
 };
