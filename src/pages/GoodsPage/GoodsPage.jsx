@@ -3,18 +3,11 @@ import {
   GoodsSection,
   WrapperTitle,
   GoodsList,
-  GoodLink,
-  GoodImgThumb,
-  GoodTitle,
-  GoodPrice,
-  GoodAvailability,
-  GoodAvailabilityN,
-  BtnCard,
 } from './GoodsPage.styled.jsx';
+import { GoodLink } from 'components/GoodLink/GoodLink.jsx';
 import { PageTitle } from 'components/common/CommonText.styled.jsx';
 import { SearchBar } from '../../components/common/SearchBar/SearchBar.jsx';
 import { Container } from 'components/common/Container.styled.jsx';
-import { FaShoppingBasket } from 'react-icons/fa';
 import data from '../../helpers/goods.js';
 const GOODS = 'goods';
 const BASKET = 'basket';
@@ -82,42 +75,7 @@ const GoodsPage = () => {
           <GoodsList>
             {goods.map(good => (
               <li key={good._id}>
-                <GoodLink href="">
-                  <GoodImgThumb>
-                    {' '}
-                    <img src={good.imageURL} alt="eggs" width="70px" />
-                  </GoodImgThumb>
-                  <GoodTitle>{good.title}</GoodTitle>
-                  <GoodPrice>{good.price} грн</GoodPrice>
-                  {good.availability ? (
-                    <>
-                      <GoodAvailability>Є в наявності</GoodAvailability>
-                      <BtnCard
-                        onClick={e => {
-                          e.preventDefault();
-                          addToBasket(good);
-                        }}
-                      >
-                        Купити
-                        <FaShoppingBasket />
-                      </BtnCard>
-                    </>
-                  ) : (
-                    <>
-                      <GoodAvailabilityN>Немає в наявності</GoodAvailabilityN>
-                      <BtnCard
-                        disabled
-                        onClick={e => {
-                          e.preventDefault();
-                          addToBasket(good);
-                        }}
-                      >
-                        Купити
-                        <FaShoppingBasket />
-                      </BtnCard>
-                    </>
-                  )}
-                </GoodLink>
+                <GoodLink good={good} addToBasket={addToBasket} basket={ basket} />
               </li>
             ))}{' '}
           </GoodsList>{' '}
