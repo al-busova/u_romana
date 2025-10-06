@@ -7,12 +7,6 @@ export const theme = {
     mainText: '#2C1F18',
     addColor: '#E08E79',
     white: '#FFFFFF',
-    // accent: '#FBCE02',
-    // addAccent: '#A96F47',
-    // background: '#5D4A39',
-    // mainText: '#091B1A',
-    // addColor: '#F27B57',
-    // white: '#ffffff',
   },
   //      0  1   2   3   4   5   6   7   8   9  10
   space: [4, 8, 16, 20, 32, 40, 50, 60, 64, 80, 100],
@@ -49,5 +43,4 @@ export const theme = {
   shadow: {
     main: '0 2px 8px rgba(0, 0, 0, 0.1)',
   },
- 
 };

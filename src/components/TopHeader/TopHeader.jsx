@@ -7,8 +7,11 @@ import { Container } from 'components/common/Container.styled';
 import { FaShoppingBasket } from 'react-icons/fa';
 import { IoPerson } from 'react-icons/io5';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 export const TopHeader = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <Container>
       <ContactsWrapper>
@@ -23,9 +26,17 @@ export const TopHeader = () => {
           <NavLink to="/basket">
             <FaShoppingBasket color="white" />
           </NavLink>
-          <NavLink to="/profile">
-            <IoPerson color="white" />{' '}
-          </NavLink>
+          {isLoggedIn ? (
+            <NavLink to="/profile">
+              <IoPerson color="white" />{' '}
+            </NavLink>
+          ) : (
+            <>
+              {' '}
+              <NavLink to="/register">Register</NavLink>
+              <NavLink to="/login">Login</NavLink>
+            </>
+          )}
         </WrapperIcons>
       </ContactsWrapper>
     </Container>

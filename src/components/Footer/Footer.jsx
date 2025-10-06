@@ -46,7 +46,7 @@ export const Footer = () => {
       <Copy>
         © 2025 <NavLinkFooter>У_Романа</NavLinkFooter> Всі права захищені
         <span>
-          Розробка <a href="https://github.com/al-busova">Al-Busova</a>
+          &emsp; Розробка <a href="https://github.com/al-busova">Al-Busova</a>
         </span>
       </Copy>
     </FooterStyled>
