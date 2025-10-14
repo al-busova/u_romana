@@ -2,6 +2,7 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout';
 import PublicRoute from '../components/PublicRoute';
+import PrivateRoute from './PrivateRoute';
 import { LeftSide } from './LeftSide/LeftSide';
 import { MainBody } from './LeftSide/LeftSide.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -76,9 +77,9 @@ export const App = () => {
               <Route
                 path="/profile"
                 element={
-                  <PublicRoute>
+                  <PrivateRoute>
                     <UserPage />
-                  </PublicRoute>
+                  </PrivateRoute>
                 }
               />
               <Route

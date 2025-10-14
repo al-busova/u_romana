@@ -1,19 +1,11 @@
 import {
   ContactsWrapper,
-  ContactsLink,
-  WrapperIcons,
+  ContactsLink
 } from './TopHeader.styled';
-import { Container } from 'components/common/Container.styled';
-import { FaShoppingBasket } from 'react-icons/fa';
-import { IoPerson } from 'react-icons/io5';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from 'redux/auth/authSelectors';
+import { TopHeaderIcons } from 'components/TopHeaderIcons/TopHeaderIcons';
 
 export const TopHeader = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <Container>
       <ContactsWrapper>
         <ContactsLink href="mailto:roman@gmail.com">
           roman@gmail.com
@@ -22,23 +14,7 @@ export const TopHeader = () => {
           <ContactsLink href="tel:+380996748145">+380996748145</ContactsLink>
           <ContactsLink href="tel:+380966748145">+380966748145</ContactsLink>
         </div>
-        <WrapperIcons>
-          <NavLink to="/basket">
-            <FaShoppingBasket color="white" />
-          </NavLink>
-          {isLoggedIn ? (
-            <NavLink to="/profile">
-              <IoPerson color="white" />{' '}
-            </NavLink>
-          ) : (
-            <>
-              {' '}
-              <NavLink to="/register">Register</NavLink>
-              <NavLink to="/login">Login</NavLink>
-            </>
-          )}
-        </WrapperIcons>
+   <TopHeaderIcons/>
       </ContactsWrapper>
-    </Container>
   );
 };

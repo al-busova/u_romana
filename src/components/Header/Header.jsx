@@ -1,22 +1,21 @@
 import { Navigation } from '../Navigation/Navigation';
-import { HeaderStyled, TopWrapper } from './Header.styled';
+import { TopWrapper } from './Header.styled';
 import { SocialLinks } from 'components/SocialLinks/SocailLinks';
 import { TopHeader } from 'components/TopHeader/TopHeader';
-import { Container } from 'components/common/Container.styled';
 import { Logo } from 'components/Logo/Logo';
+import { useMedia } from 'react-use';
 
 export const Header = () => {
+  const isDesktop = useMedia('(min-width: 768px)');
   return (
     <TopWrapper>
-      <Logo />
-      <div >
+      {isDesktop && <Logo />}
+      <div>
         <TopHeader />
         <SocialLinks />
-        <HeaderStyled>
-          <Container>
+        <header>
             <Navigation />
-          </Container>
-        </HeaderStyled>
+        </header>
       </div>
     </TopWrapper>
   );

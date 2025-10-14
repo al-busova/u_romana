@@ -7,8 +7,8 @@ export const LeftSide = () => {
     <LeftSideStyled>
       <Schedule />
       <Reviews />
-      <p style={{backgroundColor:'violet'}}>Маркетинг?</p>
-      <p style={{backgroundColor:'violet'}}>Опис ферми?</p>
+      {/* <p style={{backgroundColor:'violet'}}>Маркетинг?</p>
+      <p style={{backgroundColor:'violet'}}>Опис ферми?</p> */}
     </LeftSideStyled>
   );
 };

@@ -93,7 +93,7 @@ const HomePage = () => {
           </p>
         </Container>
       </Section>
-      <Section style={{ backgroundColor: 'violet' }}>
+      {/* <Section style={{ backgroundColor: 'violet' }}>
         <Container>
           <p>розпродажі та акції</p>
           <p>слайдер з популярними або з рекламами?</p>
@@ -106,7 +106,7 @@ const HomePage = () => {
           Вміст мінералів та вітамінів Щось про норми споживання білка Про
           птахівництво або Рецепти проготування
         </Container>
-      </Section>
+      </Section> */}
     </main>
   );
 };

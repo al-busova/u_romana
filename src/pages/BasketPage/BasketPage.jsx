@@ -1,6 +1,6 @@
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { Container } from 'components/common/Container.styled';
-import {BasketSection, BtnChangeCount } from './BasketPage.styled';
+import {BasketSection, BtnChangeCount, NavLinkAuth  } from './BasketPage.styled';
 import { PageTitle } from 'components/common/CommonText.styled';
 const BASKET = 'basket';
 
@@ -37,7 +37,9 @@ const Basket = () => {
               return prev + good.price*good.count;
             }, 0)}
         </p>
-        <button>Офрмити замолення</button>
+        <button>Оформити замолення</button>
+        <p>Щоб офрмити замовлення слід</p><NavLinkAuth to="/login">Увійти</NavLinkAuth>
+        або  <NavLinkAuth to="/register">Зареєструватися</NavLinkAuth>
       </Container>{' '}
     </BasketSection>
   );
