@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, getCurrentUser } from './authOperations';
+import { register, logIn, logOut, getCurrentUser, getAllUser } from './authOperations';
 
 const initialState = {
-  user: null,
+  user: {},
   token: '',
   isLoggedIn: false,
   isFetchingCurrentUser: false,
@@ -17,7 +17,7 @@ const authSlice = createSlice({
     builder
       // ✅ registration
       .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = action.payload;
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.isLoading = false;
@@ -41,7 +41,11 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-
+      .addCase(getAllUser.fulfilled, (state, action) => {
+         state.isLoading = false;
+        state.user = action.payload;
+        console.log('dffdd', action.payload);
+      })
       // ✅ спец-кейс: fetchCurrentUser
       .addCase(getCurrentUser.pending, state => {
         state.isFetchingCurrentUser = true;

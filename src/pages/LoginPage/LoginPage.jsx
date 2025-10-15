@@ -3,17 +3,17 @@ import * as yup from 'yup';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
-import { selectIsLoading} from 'redux/auth/authSelectors';
+import { selectIsLoading } from 'redux/auth/authSelectors';
 import { Form, Field, ErrorMessage } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const emailIdLogin = nanoid();
+  const emailIdLogin = nanoid();
   const passwordIdLogin = nanoid();
-    const isLoading = useSelector(selectIsLoading);
-    const dispatch = useDispatch();
-      const navigate = useNavigate();
+  const isLoading = useSelector(selectIsLoading);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -22,38 +22,20 @@ const Login = () => {
 
   const initialValues = {
     email: '',
-      password: ''
+    password: '',
   };
 
-//   const handleSubmit = ({ email, password}) => {
-//     dispatch(
-//       logIn({
-//         email,
-//         password
-//       }).then(resp => {
-//           if (resp.meta.requestStatus === 'fulfilled') {
-//             toast.success('Successfully registered!');
-//                   navigate('/profile', { replace: true });
-//           } else {
-//             toast.warn('Wrong password or email!');
-//           }
-//           return;
-//         }
-//       ));
- 
-//     };
- const handleSubmit = values => {
-   dispatch(logIn(values)).then(resp => {
-     if (resp.meta.requestStatus === 'fulfilled') {
-       toast.success('Successfully registered!');
-     navigate('/profile', { replace: true });
-     } else {
-       toast.warn('Wrong password or email!');
-     }
-     return;
-   });
- };
-
+  const handleSubmit = values => {
+    dispatch(logIn(values)).then(resp => {
+      if (resp.meta.requestStatus === 'fulfilled') {
+        toast.success('Вхід виконано успішно!');
+        navigate('/goods', { replace: true });
+      } else {
+        toast.warn('Не правильна пошта чи пароль!');
+      }
+      return;
+    });
+  };
 
   return (
     <main>
@@ -87,7 +69,7 @@ const Login = () => {
             {isLoading ? <>Loading...</> : <>Login</>}
           </button>
         </Form>
-          </Formik>
+      </Formik>
     </main>
   );
 };

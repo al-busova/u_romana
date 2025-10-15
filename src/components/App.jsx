@@ -8,6 +8,8 @@ import { MainBody } from './LeftSide/LeftSide.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsGetCurrentUser,   selectIsLoading } from 'redux/auth/authSelectors';
 import { getCurrentUser } from 'redux/auth/authOperations';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const GoodsPage = lazy(() => import('../pages/GoodsPage/GoodsPage'));
 const OurHistoryPage = lazy(() =>
@@ -110,6 +112,11 @@ export const App = () => {
             </Route>
           </Routes>
         </Suspense>{' '}
+        <ToastContainer
+          autoClose={2000}
+          position="top-center"
+          theme="colored"
+        />
       </MainBody>
     )
   );
