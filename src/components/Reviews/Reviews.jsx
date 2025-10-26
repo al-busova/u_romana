@@ -40,7 +40,7 @@ export const Reviews = () => {
               <ReviewName>{review.name}</ReviewName>
               <RateWrapperStyled>
                 <RateBody>
-                  <RateActive rate={review.rate}></RateActive>
+                  <RateActive $rate={review.rate}></RateActive>
                   <InputBoxStyled>
                     <InputStyled
                       type="radio"

@@ -4,9 +4,19 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { register, logIn } from 'redux/auth/authOperations';
 import { selectIsLoading } from 'redux/auth/authSelectors';
-import { Form, Field, ErrorMessage } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { Container } from 'components/common/Container.styled';
+import {
+  RegSection,
+  RegTitle,
+  FormFormik,
+  RegLabel,
+  ErrorFormik,
+  FieldFormik,
+  InputStyled,
+} from './RegisterPage.styled';
 
 const Registration = () => {
   const nameIdReg = nanoid();
@@ -14,6 +24,7 @@ const Registration = () => {
   const emailIdReg = nanoid();
   const phoneIdReg = nanoid();
   const passwordIdReg = nanoid();
+  const confirmPasswordIdReg = nanoid();
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,6 +42,10 @@ const Registration = () => {
         'Введите корректный номер в формате +380XXXXXXXXX'
       )
       .required('Номер телефона обязателен'),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], 'Паролі не співпадають')
+      .required('Підтвердіть пароль'),
   });
 
   const initialValues = {
@@ -39,14 +54,13 @@ const Registration = () => {
     email: '',
     password: '',
     phone: '',
+    confirmPassword:''
   };
 
  const handleSubmit = ({ name, email, surname, password, phone }) => {
    dispatch(register({ name, surname, email, password, phone })).then(resp => {
      if (resp.meta.requestStatus === 'fulfilled') {
        toast.success('Реєстрація пройшла успішно!');
-
-       // ✅ логин только после успешной регистрации
        dispatch(logIn({ email, password })).then(loginResp => {
          if (loginResp.meta.requestStatus === 'fulfilled') {
            toast.success('Вхід виконано!');
@@ -63,67 +77,83 @@ const Registration = () => {
 
   return (
     <main>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={handleSubmit}
-      >
-        <Form autoComplete="off">
-          <label htmlFor={nameIdReg}>
-            <span>Ім'я</span>
-            <Field
-              id={nameIdReg}
-              type="text"
-              name="name"
-              placeholder="Create name"
-            />
-          </label>
-          <ErrorMessage name="name" component="p" />
-          <label htmlFor={nameIdReg}>
-            <span>Прізвище</span>
-            <Field
-              id={surnameIdReg}
-              type="text"
-              name="surname"
-              placeholder="Create surname"
-            />
-          </label>
-          <ErrorMessage name="surname" component="p" />
-          <label htmlFor={emailIdReg}>
-            <span>Email</span>
-            <Field
-              id={emailIdReg}
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-            />
-          </label>
-          <ErrorMessage name="email" component="p" />
-          <label htmlFor={phoneIdReg}>
-            <span>Phone</span>
-            <Field
-              id={phoneIdReg}
-              type="text"
-              name="phone"
-              placeholder="Enter your phone"
-            />
-          </label>
-          <ErrorMessage name="phone" component="p" />
-          <label htmlFor={passwordIdReg}>
-            <span>Password</span>
-            <Field
-              id={passwordIdReg}
-              type="password"
-              name="password"
-              placeholder="Create password"
-            />
-          </label>
-          <ErrorMessage name="password" component="p" />
-          <button type="submit">
-            {isLoading ? <>Loading...</> : <>Register</>}
-          </button>
-        </Form>
-      </Formik>
+      <RegSection>
+        <Container>
+          <RegTitle>Реєстрація</RegTitle>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={schema}
+            onSubmit={handleSubmit}
+          >
+            <FormFormik autoComplete="off">
+              <RegLabel htmlFor={nameIdReg}>
+                <span>Ім'я*:</span>
+                <FieldFormik
+                  id={nameIdReg}
+                  type="text"
+                  name="name"
+                  placeholder="Пилип"
+                />
+              </RegLabel>
+              <ErrorFormik name="name" component="p" />
+              <RegLabel htmlFor={nameIdReg}>
+                <span>Прізвище*:</span>
+                <Field
+                  as={InputStyled}
+                  id={surnameIdReg}
+                  type="text"
+                  name="surname"
+                  placeholder="Перепілка"
+                />
+              </RegLabel>
+              <ErrorMessage name="surname" component="p" />
+              <RegLabel htmlFor={emailIdReg}>
+                <span>Пошта*:</span>
+                <Field
+                  id={emailIdReg}
+                  type="email"
+                  name="email"
+                  placeholder="my.email@gmail.com"
+                />
+              </RegLabel>
+              <ErrorMessage name="email" component="p" />
+              <RegLabel htmlFor={phoneIdReg}>
+                <span>Контактний номер*:</span>
+                <Field
+                  id={phoneIdReg}
+                  type="text"
+                  name="phone"
+                  placeholder="+380999999999"
+                />
+              </RegLabel>
+              <ErrorMessage name="phone" component="p" />
+              <RegLabel htmlFor={passwordIdReg}>
+                <span>Пароль*:</span>
+                <Field
+                  id={passwordIdReg}
+                  type="password"
+                  name="password"
+                  placeholder="Пароль"
+                />
+              </RegLabel>
+              <ErrorMessage name="password" component="p" />
+              <RegLabel htmlFor={confirmPasswordIdReg}>
+                <span>Підтвердження пароля*:</span>
+                <Field
+                  id={confirmPasswordIdReg}
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Повторити пароль"
+                />
+              </RegLabel>
+              <ErrorMessage name="confirmPassword" component="p" />
+              <button type="submit">
+                {isLoading ? <>Loading...</> : <>Зареєструватися</>}
+              </button>
+            </FormFormik>
+          </Formik>{' '}
+        </Container>
+      </RegSection>
     </main>
   );
 };

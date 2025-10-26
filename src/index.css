@@ -37,3 +37,6 @@ img {
 a {
   text-decoration: none;
 }
+input::placeholder {
+  font-family: 'Roboto', sans-serif !important;
+}

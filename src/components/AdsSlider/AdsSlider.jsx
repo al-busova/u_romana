@@ -39,7 +39,7 @@ export const AdsSlider = () => {
             position = 'lastSlide';
           }
           return (
-            <SlideStyled position={position} key={ad.id}>
+            <SlideStyled $position={position} key={ad.id}>
               <img src={ad.image} alt="ad_ferma" />
             </SlideStyled>
           );

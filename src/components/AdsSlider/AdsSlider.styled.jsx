@@ -22,24 +22,22 @@ export const SlideStyled = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: ${props => {
-    if (props.position === 'activeSlide') {
-      return `1`;
+  opacity: ${({ $position }) => {
+    if ($position === 'activeSlide') {
+      return '1';
     } else {
       return '0';
     }
   }};
-  transform: ${props => {
-    if (props.position === 'nextSlide') {
-      return `translate(100%)`;
-    }
-    if (props.position === 'lastSlide') {
-      return `translate(-100%)`;
-    }
-    if (props.position === 'activeSlide') {
-      return `translate(0)`;
-    }
+  transform: ${({ $position }) => {
+    const map = {
+      nextSlide: 'translate(100%)',
+      lastSlide: 'translate(-100%)',
+      activeSlide: 'translate(0)',
+    };
+    return map[$position] || 'translate(100%)'; // fallback
   }};
+
   transition: opacity 1000ms ease-in, transform 500ms ease-in;
 
   @media ${device.tablet} {
